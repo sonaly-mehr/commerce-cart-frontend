@@ -1,0 +1,106 @@
+.footer-section{
+}
+.subscribe-news{background: #1D2224;padding: 50px 0}
+.subscribe-wrap{
+    display: flex;
+    justify-content: space-between;
+}
+.subscribe-wrap h4{
+    color: #fff;
+    font-weight: 600;
+    font-size: 28px;
+    margin-top: 10px;
+}
+.subscribe-wrap form{
+    display: flex;
+}
+.subscribe-wrap input{
+    width: 450px;
+    padding: 12px 15px;
+}
+.subscribe-wrap button{
+    background: #F7941D;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 18px;
+    position: relative;
+    left: -8px;
+}
+.footer-main{
+    background: #F7F8FB;
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+.footer-container{}
+.footer-top{}
+.single-footer-top{}
+.single-footer-top p{
+    color: #687188;
+    line-height: 30px;
+    padding-top: 12px;
+}
+.single-footer-top ul{margin-left: -32px;}
+.single-footer-top ul li{
+    padding-bottom: 15px;
+    color: #687188;
+}
+.single-footer-top h4{
+    font-size: 20px;
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+.insta-gallary{}
+.single-gallary{}
+.single-gallary img{
+    max-width: 100%;
+}
+.footer-middle{
+    border-top: 1px solid #dcdada;
+    border-bottom: 1px solid #dcdada;
+    padding: 35px 0;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+.footer-middle-icon{
+    color: #F7941D;
+    font-size: 32px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 2px -2px #e6e6e6;
+}
+.single-footer-middle{display: flex;}
+.footer-icon{
+    margin-right: 10px;
+}
+.middle-content{
+    margin-left: 20px;
+    margin-bottom: -20px;
+}
+.middle-content h4{font-size: 20px;}
+.middle-content p{
+    color: #687188;
+    line-height: 28px;
+}
+.footer-bottom{}
+.single-footer-bttom{}
+.single-footer-bttom p{color: #687188;}
+.social{}
+.social-icon{
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    margin-right: 5px;
+}
+.payment-icon{
+    margin-right: 6px;
+    font-size: 30px;
+    color: #FFA83E;
+}
+.footer-payment{margin-left: 47%;}
+.facebook{background-color: #3B5998;}
+.twitter{background: #00ACEE;}
+.google{background: #DD4B39}
+.youtube{background: #C4302B}
+.insta{background: #3F729B}

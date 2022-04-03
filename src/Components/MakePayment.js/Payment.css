@@ -1,0 +1,129 @@
+.card-form-section{
+    width: 30%;
+    margin: auto;
+    padding-top: 40px;
+    padding-bottom: 115px;
+}
+
+.card-form-section h4{
+    margin-top: 10px;
+    font-size: 22px;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+.card-form{
+    margin-top: -34px;
+}
+.card-form select{
+    background: #fff;
+    border: 1px solid #dcd9d9;
+    padding: 6px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-right: 50px;
+}
+.zip_code{
+    font-size: 14px;
+    border: 1px solid #dcd9d9;
+    padding: 4px 20px;
+    border-radius: 5px;
+    width: 32%;
+    text-align: center;
+}
+.card-form label{
+    color: #343434;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+.payment-submit{
+    margin-top: 35px;
+    padding: 5px 60px;
+    background: #F7941D;
+    color: #fff;
+}
+.place-order-section{
+    padding-top: 50px;
+    padding-bottom: 80px;
+}
+.shipping, .payment{
+    background: #fafafa;
+    padding: 20px 25px;
+    box-shadow: 0px 0px 14px -3px #dadada;
+    border-radius: 4px;
+    margin-bottom: 35px;
+    border: 1px solid #eae1e1;
+}
+.shipping h4, .payment h4{
+    font-weight: 600;
+    padding-bottom: 20px;
+}
+
+.order-summarry{
+    padding: 15px 25px;
+    box-shadow: 0px 0px 10px -2px #c7c7c7;
+    padding-bottom: 30px;
+}
+.summary-header{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.summary-header p{
+    font-weight: 500;
+    font-size: 18px;
+}
+.summary-header span{
+    font-size: 12px;
+    background: #F7941D;
+    display: inline-block;
+    height: 27px;
+    width: 55px;
+    color: #fff;
+    text-align: center;
+    padding-top: 5px;
+    border-radius: 3px;
+}
+.summer-header-border{
+    position: absolute;
+    width: 112%;
+    height: 2px;
+    background: #e7e2e2;
+    left: -25px;
+    top: 88%;
+}
+.product-header, .product-content, .subtotal, .total-shipping, .total{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e7e2e2;
+    padding-top: 15px;
+    padding-bottom: 8px
+}
+.product-header h6, .subtota h6, .total-shipping h6, .total h6{
+    font-weight: 600;
+}
+.product-content{
+    padding-bottom: 0px
+}
+.product-content p{
+    width: 250px;
+}
+.product-content p span{}
+.subtotal{
+
+}
+.subtotal span{font-weight: 500;}
+.total{
+    border-bottom: 0;
+}
+.total span{font-weight: 600;}
+.place-order-section button{
+    background: #F7941D;
+    padding: 10px 47px;
+    border: none;
+    margin-left: 30%;
+    margin-top: 15px;
+}
+.place-order-section button a{
+    color:#fff;
+    font-weight: 500;
+}

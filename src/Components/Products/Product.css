@@ -1,0 +1,90 @@
+.product-section{
+    margin-top: 100px;
+}
+.product-section h2{
+    font-weight: 600;
+    border-bottom: 1px solid #e8e5e5;
+    padding-bottom: 12px;
+}
+.product-wrap{
+    margin-top: 50px;
+    display: block;
+}
+.single-product{
+    box-shadow: 0px 4px 10px 2px #e9e9e9;
+    margin-bottom: 35px;
+}
+.product-desp{
+    padding: 15px;
+    background: #f9f9f9;
+    height: 170px;
+    padding-top: 30px
+}
+.single-product img{
+    max-width: 100%;
+    height: 200px;
+}
+.single-product h4{
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+}
+.price{
+    color: #ff5151;
+    font-weight: 600;
+    font-size: 16px;
+    margin-right: 155px;
+    display: inline-block;
+    width: 1px;
+}
+.single-product button{
+    background: #F7941D;
+    color: #fff;
+    font-size: 12px;
+    border: none;
+    font-weight: 600;
+    padding: 7px 10px;
+}
+.review-star{
+    font-size: 12px;
+    color: #FFB761;
+}
+.review-section{
+    font-size: 12px;
+    font-weight: 500;
+}
+.btn-container{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+}
+.btn-container button{
+    padding: 5px 15px;
+    border: none;
+    background: #F7941D;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 12px;
+    border-radius: 3px;
+}
+.btn-container button:hover{
+    background-color: #EC8203;;
+}
+.show-bttn{
+    background: #fffdfd;
+    color: #000;
+    border: none;
+    box-shadow: 0px 3px 10px -2px #a9a7a7;
+    padding: 10px 55px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-left: 43%;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+.prouct-hover:hover .product-desp h4{
+    text-decoration: underline;
+    color:rgb(37, 59, 184)
+    
+}
