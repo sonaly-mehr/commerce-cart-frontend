@@ -11,10 +11,14 @@ import ReactPaginate from 'react-paginate'
 import { GrPrevious, GrNext } from "react-icons/gr";
 import { TiDeleteOutline } from "react-icons/ti";
 import AdminHeader from './AdminHeader';
+import axios from 'axios';
 
 const Users = () => {
+    const [search,setSearch] =useState('');
     const [userList, setUserList] = useState([]);
     const [pageNumber, setPageNumber] = useState(0);
+
+    console.log("search result", userList);
 
     useEffect(() => {
         fetch('http://localhost:4000/api/user/list')
@@ -33,7 +37,17 @@ const Users = () => {
                 }
 
             })
-            setUserList(userList.filter(u => u._id !== id))
+        setUserList(userList.filter(u => u._id !== id))
+    }
+    const searchRecords = (e) =>
+    {
+        e.preventDefault();
+        // alert(search)
+        axios.get(`http://localhost:4000/api/search/user/${search}`)
+        .then(response => {
+            setUserList(response.data);
+          });
+        
     }
 
     const productPerPage = 8;
@@ -54,23 +68,27 @@ const Users = () => {
                     <td className='user-number'>{user.contactNumber}</td>
                 </tr>
                 <tr>
-                    <td className='action-bttn user-btn'><button className='delete-btn' onClick={()=> deleteUser(user._id)} ><TiDeleteOutline /></button></td>
+                    <td className='action-bttn user-btn'><button className='delete-btn' onClick={() => deleteUser(user._id)} ><TiDeleteOutline /></button></td>
                 </tr>
             </div>
         )
     })
-    const pageCount = Math.ceil(userList.length/productPerPage)
-    const changePage = ({selected}) => {
+    const pageCount = Math.ceil(userList.length / productPerPage)
+    const changePage = ({ selected }) => {
         setPageNumber(selected);
     }
     return (
         <div className='admin-dash-section'>
-        <AdminHeader></AdminHeader>
-        <h2 className='admin-header'>Admin Dasboard</h2>
+            <AdminHeader></AdminHeader>
+            <h2 className='admin-header'>Admin Dasboard</h2>
 
-        <div className="add-product-form default-dash-width" style={{ textAlign: 'center' }}>
+            <div className="add-product-form default-dash-width" style={{ textAlign: 'center' }}>
                 <div className="admin-product-header">
                     <p>Users</p>
+                    <form action="">
+                        <input type="text" onChange={(e)=>setSearch(e.target.value)} placeholder='Search user by name or email...' />
+                        <button onClick={searchRecords}>Search</button>
+                    </form>
                     <span>User List</span>
                 </div>
 
@@ -87,34 +105,34 @@ const Users = () => {
                         </tr>
                         {displayProuct}
                     </table>
-                    <ReactPaginate 
-                    previousLabel={<GrPrevious/>}
-                    nextLabel={<GrNext/>}
-                    pageCount={pageCount}
-                    onPageChange={changePage}
-                    containerClassName={"paginateBttns"}
-                    previousLinkClassName={"PreviousBttn"}
-                    nextLinkClassName={"nextBttn"}
-                    disabledClassName={"disableBttn"}
-                    activeClassName={"activeBttn"}
+                    <ReactPaginate
+                        previousLabel={<GrPrevious />}
+                        nextLabel={<GrNext />}
+                        pageCount={pageCount}
+                        onPageChange={changePage}
+                        containerClassName={"paginateBttns"}
+                        previousLinkClassName={"PreviousBttn"}
+                        nextLinkClassName={"nextBttn"}
+                        disabledClassName={"disableBttn"}
+                        activeClassName={"activeBttn"}
                     />
                 </div>
             </div>
 
-        <div className="admin-dash-sidebar">
-            <div className="dashboard-header">
-                <p><AiFillHome className='home-icon' /> Dashboard</p>
-            </div>
-            <ul>
-                <li><Link to="/admin/dashboard">Dashboard</Link> <AiFillHome className='sidebar-icon' /></li>
-                <li><Link to="/admin/users">Users</Link> <FaUserFriends className='sidebar-icon' /></li>
-                <li><Link to="/admin/add-product">Add Product</Link> <AiFillPlusCircle className='sidebar-icon' /></li>
-                <li><Link to="/admin/product-list">Product List</Link> <BsFillCartCheckFill className='sidebar-icon' /></li>
-                <li><Link to="/admin/reviews">Reviews</Link> <MdReviews className='sidebar-icon' /></li>
+            <div className="admin-dash-sidebar">
+                <div className="dashboard-header">
+                    <p><AiFillHome className='home-icon' /> Dashboard</p>
+                </div>
+                <ul>
+                    <li><Link to="/admin/dashboard">Dashboard</Link> <AiFillHome className='sidebar-icon' /></li>
+                    <li><Link to="/admin/users">Users</Link> <FaUserFriends className='sidebar-icon' /></li>
+                    <li><Link to="/admin/add-product">Add Product</Link> <AiFillPlusCircle className='sidebar-icon' /></li>
+                    <li><Link to="/admin/product-list">Product List</Link> <BsFillCartCheckFill className='sidebar-icon' /></li>
+                    <li><Link to="/admin/reviews">Reviews</Link> <MdReviews className='sidebar-icon' /></li>
 
-            </ul>
+                </ul>
+            </div>
         </div>
-    </div>
     );
 };
 

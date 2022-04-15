@@ -27,9 +27,10 @@ export const productContext = createContext();
 function App() {
   const [productData, setProductData] = useState([]);
   const [singleProductData, setSingleProductData] = useState([]);
+  const [list, setList] = useState([]);
   const [updateProduct, setUpdateProduct]= useState([]);
   const [orderData, setOrderData] = useState([]);
-  console.log("order data from app", orderData);
+  const [searchProduct, setSearchProduct] =useState('');
   const [quantity, setQuantity] = useState(1);
   const [loggedInUser, setLoggedInUser] = useState({});
   const [adminLoggedIn, setAdminLoggedIn]= useState({});
@@ -38,10 +39,12 @@ function App() {
 
   const value = { 
     productData, setProductData, 
+    list, setList,
     quantity, setQuantity, 
     loggedInUser, setLoggedInUser,
+    searchProduct, setSearchProduct,
     adminLoggedIn, setAdminLoggedIn,
-    singleProductData, setSingleProductData,
+    singleProductData, setSingleProductData, 
     shippingData, setShippingData,
     orderData, setOrderData,
     addToCart, setAddToCart,
@@ -81,7 +84,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/user/dashboard" element={<UserDashboard />} />
           <Route path="/user/order-history" element={<OrderHistory />} />
-          <Route path="/user/profile" element={<ManageProfile />} />
+          <Route path="/user/profile/update/:userId" element={<ManageProfile />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

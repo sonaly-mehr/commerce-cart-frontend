@@ -37,7 +37,7 @@ const PlaceOrder = () => {
                                     <div className="payment">
                                         <h4>Shipping</h4>
                                         <div className="payment-detail">
-                                            <h5>Method:</h5> <p>Paypal</p>
+                                            <h5>Payment Method:</h5> <p>Paypal</p>
                                         </div>
                                     </div>
                                 </div>
@@ -56,7 +56,7 @@ const PlaceOrder = () => {
                                         <h6>Product</h6> <h6>Total</h6>
                                     </div>
                                     <div className="product-content">
-                                        <p>{pd.name} × {quantity}</p>
+                                        <p>{pd.name} × <strong>{quantity}</strong></p>
                                         <span>${quantity* pd.price}</span>
                                     </div>
                                 </div>

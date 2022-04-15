@@ -15,6 +15,8 @@ import Sidebar from './Sidebar';
 
 const UserDashboard = () => {
     const { loggedInUser, setLoggedInUser } = useContext(productContext);
+    const { orderData, setOrderData } = useContext(productContext);
+    console.log('order data from dashboard', orderData)
     return (
         <div className='admin-dash-section'>
             <div>
@@ -33,12 +35,12 @@ const UserDashboard = () => {
             <div className="header">
                 <div className="container">
                     <div className="row">
-                        <div className="col-md-3">
+                        <div className="col-md-4">
                             <div className="logo">
                                 <h2><FontAwesomeIcon icon={faBasketShopping} className="logo-icon"></FontAwesomeIcon> Commerce Cart</h2>
                             </div>
                         </div>
-                        <div className="col-md-8">
+                        <div className="col-md-7">
                             <div className="search-bar">
                                 <form action="">
                                     <input type="text" placeholder='Search Product Here..' />
@@ -83,7 +85,9 @@ const UserDashboard = () => {
                         </div>
                         <div className="default-shipping-address">
                             <p>Default Shipping Address</p>
-                            <h6>Tommy Bahama Scottsdale Kierland. 15205 North Kierland Blvd. Suite 100</h6>
+                            {/* {
+                                orderData.map((dt)=> <h6>{dt.address.street}, {dt.address.postal}, {dt.address.city}, {dt.address.country}</h6>)
+                            } */}
                         </div>
                     </div>
                 </div>

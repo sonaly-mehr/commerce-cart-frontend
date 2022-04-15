@@ -88,16 +88,35 @@
     justify-content: space-between;
     margin-top: -10px;
     border-bottom: 1px solid #e3e3e3;
+    position: relative;
+    padding: 10px 0;
 }
 .admin-product-header p{
     padding-left: 20px;
     font-size: 20px;
     color: #565656;
+    width: 73px;
 }
 .admin-product-header span{
     color: #00C2C7;
     padding-right: 20px;
     margin-top: 7px;
+}
+.admin-product-header form{
+    position: absolute;
+    top: 8px;
+    left: 24%;
+    width: 54%;
+}
+.admin-product-header input{}
+.admin-product-header button{
+    width: 96px;
+    height: 40px;
+    margin-left: -14px;
+    background: #00A6AA;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
 }
 .add-product-form label{
     width: 110px;
@@ -115,7 +134,7 @@
     font-size: 14px;
     padding-left: 10px;
     height: 40px;
-    border: 1px solid #e7e7e7;
+    border: 1px solid #b3b2b2;
     margin-bottom: 25px;
     border-radius: 4px;
 }

@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import './Banner.css';
 import bannerImg from '../../banner-img.png'
+import { productContext } from '../../App';
 
 const Banner = () => {
+    const {searchProduct, setSearchProduct} = useContext(productContext);
+    // const bannerSection = () => {
+    //     if(searchProduct!== ''){
+
+    //     }
+    // }
+    // const [showBanner, setShowBanner] = useState(searchProduct);
     return (
-        <div className='banner-section'>
+        <div>
+      {(() => {
+        if (searchProduct === '') {
+          return (
+            <div className='banner-section'>
             <div className="container">
                 <div className="banner-wrap">
             <div className="banner-content">
@@ -19,6 +31,11 @@ const Banner = () => {
         </div>
         </div>
         </div>
+          )
+        }  
+      })()}
+    </div>
+        
     );
 };
 

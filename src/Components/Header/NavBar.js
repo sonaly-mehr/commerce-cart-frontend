@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Header.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faBars} from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
+import { productContext } from '../../App';
 const NavBar = () => {
+    const {searchProduct, setSearchProduct} = useContext(productContext);
     return (
-        <div className='navbar-section'>
+        <div>
+      {(() => {
+        if (searchProduct === '') {
+          return (
+            <div className='navbar-section'>
             <div className="container">
                 <div className="menu">
                     <ul>
@@ -32,6 +38,11 @@ const NavBar = () => {
                 </div>
             </div>
         </div>
+          )
+        }  
+      })()}
+    </div>
+        
     );
 };
 

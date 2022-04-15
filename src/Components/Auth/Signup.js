@@ -27,14 +27,14 @@ const Signup = () => {
             body: JSON.stringify(userData)
         })
             .then(res => res.json())
-            .then(success => {
-                if (success) {
-                    alert('User Created Sucessfully!')
+            .then((success, error) => {
+                if(success){
+                alert(success.message)
                 }
-
+                else{
+                    alert(error.message);
+                }
             })
-            navigate('/signin')
-            console.log(data)
     };
     return (
         <div className='signup-section'>

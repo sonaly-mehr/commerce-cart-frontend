@@ -20,6 +20,7 @@ const ProductDetail = () => {
             .then(res => res.json())
             .then(data => setSingleProductData(data));
     }, [productId])
+    console.log("single data without array", singleProductData)
 
     return (
         <div className='product-detail-section'>

@@ -13,8 +13,10 @@ import { useEffect } from 'react';
 import ReactPaginate from 'react-paginate'
 import AdminHeader from './AdminHeader';
 import { productContext } from '../../App';
+import axios from 'axios';
 
 const ProductRecords = () => {
+    const [search, setSearch] =useState('');
     const [ProductList, setProducList] = useState([]);
     const [pageNumber, setPageNumber] = useState(0);
     const [singleProduct, setSingleProduct] = useState([])
@@ -37,6 +39,17 @@ const ProductRecords = () => {
 
             })
         setProducList(ProductList.filter(p => p._id !== id))
+    }
+
+    const searchRecords = (e) =>
+    {
+        e.preventDefault();
+        // alert(search)
+        axios.get(`http://localhost:4000/api/admin/search/product/${search}`)
+        .then(response => {
+            setProducList(response.data);
+          });
+        
     }
 
     const productPerPage = 8;
@@ -80,8 +93,12 @@ const ProductRecords = () => {
 
 
             <div className="add-product-form default-dash-width" style={{ textAlign: 'center' }}>
-                <div className="admin-product-header">
-                    <p>Products</p>
+            <div className="admin-product-header">
+                    <p>Product</p>
+                    <form action="">
+                        <input type="text" onChange={(e)=>setSearch(e.target.value)} placeholder='Search user by name or email...' />
+                        <button onClick={searchRecords}>Search</button>
+                    </form>
                     <span>Product List</span>
                 </div>
 

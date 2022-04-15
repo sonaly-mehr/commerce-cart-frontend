@@ -12,7 +12,7 @@ const Products = () => {
 
     const [ProductArray, setProductArray] = useState([]);
     const [productss, setProductss] = useState(ProductArray);
-    const [list, setList] = useState([]);
+    const {list, setList} = useContext(productContext);
     const { singleProductData, setSingleProductData } = useContext(productContext);
 
     useEffect(() => {

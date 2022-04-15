@@ -35,14 +35,17 @@
 .user-dash-sidebar ul li{
     padding: 19px 0;
 }
-.user-dash-sidebar ul li.user-nav-active{
+.user-dash-sidebar ul li .active{
     background: #CCCCCC;
     border-left: 3px solid #F7941D;
+    padding: 19px 0;
+    margin-top: -19px;
+    margin-bottom: -19px;
 }
-.user-dash-sidebar ul li:hover{
+/* .user-dash-sidebar ul li:hover{
     background: #CCCCCC;
     border-left: 3px solid #F7941D;
-}
+} */
 .user-dash-sidebar ul li a{
     width: 100%;
     color:#3c3c3c;
@@ -164,33 +167,43 @@
     margin-bottom: 32px;
     font-size: 14px;
 }
+.order-title-header{
+    position: relative;
+    left: -20px;
+}
+.order-date-header{
+    position: relative;
+    left: 21%;
+}
+.order-amount-header{
+    position: relative;
+    left: 23%;
+}
+.order-status-header{
+    position: relative;
+    left: 18%;
+}
+.order-payment-header{
+    position: relative;
+    left: 13%;
+}
 .order-title{
-    width: 246px;
+    width: 185px;
     color: #D88600;
 }
 .order-date{
     position: relative;
-    left: 20%;
+    left: -3%;
+    font-size: 13px;
 }
+
 .order-amount{
     position: relative;
-    left: 27%;
-}
-.order-status{
-    position: relative;
-    left: 32%
-}
-.order-payment{
-    position: relative;
-    left: 40%;
-}
-.order-pending{
-    position: relative;
-    left: 3%;
+    left: -4%;
 }
 .order-paid{
     position: relative;
-    left: 11%;
+    left: 8%;
     background: #0ABB75;
     color: #fff;
     width: 40px;

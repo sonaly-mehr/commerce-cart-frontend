@@ -92,7 +92,7 @@ const ProductDescp = () => {
                         </div>
                     </div>
                 )
-            }
+             }
         </>
 
     );

@@ -17,9 +17,14 @@ const Checkout = () => {
     console.log("single Data from checkout", singleProductData);
     const { quantity, setQuantity } = useContext(productContext);
 
+    const productName = singleProductData.map((pd)=> pd.name);
+    const productPrice = singleProductData.map(pd => pd.price);
+    const productId = singleProductData.map(pd => pd._id);
 
     const onSubmit = (data) => {
+
         const shippingAddress = {
+            
             fullName: data.fullName,
             contactNumber: data.contactNumber,
 
@@ -31,9 +36,9 @@ const Checkout = () => {
             },
             product: [
                 {
-                    productId: '10917391031',
-                    productPrice: 244,
-                    productName: 'snekaer',
+                    productId: productId[0],
+                    productName: productName[0],
+                    productPrice: productPrice[0] * quantity,
                     quantity: quantity,
                 }
             ]
@@ -44,10 +49,13 @@ const Checkout = () => {
 
     const handleCheckOut = (paymentId) => {
         // const productName = singleProductData.map(pd => pd.name);
-        // const productPrice = singleProductData.map(pd => pd.price);
-        // const productId = singleProductData.map(pd => pd._id);
+        // const productName = singleProductData.map((pd)=> pd.name[0]);
+        // const productPrice = singleProductData.map(pd => pd.price[0]);
+        // const productId = singleProductData.map(pd => pd._id[0]);
+        // console.log("product Id", productId);
         // console.log("product price", productPrice);
         // console.log("product name", productName);
+        // console.log("product name", productName.map(pd)=> pd.name);
 
         const newOrder = {
             ...shippingData,
