@@ -8,17 +8,17 @@ const AdminHeader = () => {
     const { adminLoggedIn, setAdminLoggedIn } = useContext(productContext);
     return (
         <div className="admin-header-top">
-                <div className="admin-login-info">
-                    <div className="admin-info-wrap">
-                        <FaUserCircle className='admin-user' />
-                        <p>{adminLoggedIn.firstName} {adminLoggedIn.lastName}</p>
-                    </div>
-                    <MdSettingsSuggest className='admin-setting' />
-                        {
-                            adminLoggedIn && adminLoggedIn.email && <span onClick={() => setAdminLoggedIn({})} style={{ cursor: 'pointer' }} className="admin-logout"><Link to="/admin/signin">Logout</Link></span>
-                        }
+            <div className="admin-login-info">
+                <div className="admin-info-wrap">
+                    <FaUserCircle className='admin-user' />
+                    <p>{adminLoggedIn.firstName} {adminLoggedIn.lastName}</p>
                 </div>
+                <MdSettingsSuggest className='admin-setting' />
+                {
+                    adminLoggedIn && adminLoggedIn.email && <span onClick={() => setAdminLoggedIn({})} style={{ cursor: 'pointer' }} className="admin-logout"><Link to="/admin/signin">Logout</Link></span>
+                }
             </div>
+        </div>
     );
 };
 

@@ -3,11 +3,10 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
 import './Auth.css'
-import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const navigate = useNavigate();
+
     const onSubmit = data => {
         const userData = {
             firstName: data.firstName,
@@ -16,7 +15,7 @@ const Signup = () => {
             password: data.password,
             contactNumber: data.contactNumber
         };
-        const url = `http://localhost:4000/api/user/signup`;
+        const url = `https://still-tundra-52950.herokuapp.com/api/user/signup`;
 
 
         fetch(url, {
@@ -28,10 +27,10 @@ const Signup = () => {
         })
             .then(res => res.json())
             .then((success, error) => {
-                if(success){
-                alert(success.message)
+                if (success) {
+                    alert(success.message)
                 }
-                else{
+                else {
                     alert(error.message);
                 }
             })
@@ -65,15 +64,15 @@ const Signup = () => {
 
                         <form action="" className='form-container' onSubmit={handleSubmit(onSubmit)}>
                             <label htmlFor="">First Name</label> <br />
-                            <input type="text" placeholder='John' name='firstName' {...register("firstName")}/> <br />
+                            <input type="text" placeholder='John' name='firstName' {...register("firstName")} /> <br />
                             <label htmlFor="">Last Name</label> <br />
-                            <input type="text" placeholder='Watson' name='lastName' {...register("lastName")}/> <br />
+                            <input type="text" placeholder='Watson' name='lastName' {...register("lastName")} /> <br />
                             <label htmlFor="">Email</label> <br />
-                            <input type="email" placeholder='example@gmail.com' name='email' {...register("email")}/> <br />
+                            <input type="email" placeholder='example@gmail.com' name='email' {...register("email")} /> <br />
                             <label htmlFor="">Password</label> <br />
-                            <input type="password" placeholder='8+ characters' name='password' {...register("password")}/> <br />
+                            <input type="password" placeholder='8+ characters' name='password' {...register("password")} /> <br />
                             <label htmlFor="">Contact Number</label> <br />
-                            <input type="number" placeholder='+0912392313' name='contactNumber' {...register("contactNumber")}/> <br />
+                            <input type="number" placeholder='+0912392313' name='contactNumber' {...register("contactNumber")} /> <br />
                             <input type="submit" value="Sign Up" />
                         </form>
                     </div>

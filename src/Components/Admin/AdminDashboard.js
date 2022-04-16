@@ -10,9 +10,6 @@ import pie from '../../../src/image/pie_chart.png'
 import { productContext } from '../../App';
 import AdminHeader from './AdminHeader';
 
-// import { useNavigate } from 'react-router';
-
-
 const AdminDashboard = () => {
     const { adminLoggedIn, setAdminLoggedIn } = useContext(productContext);
     console.log('admin data', adminLoggedIn)

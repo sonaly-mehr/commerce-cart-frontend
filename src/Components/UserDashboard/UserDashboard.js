@@ -1,35 +1,23 @@
 import React, { useContext } from 'react';
 import './UserDashboard.css';
-import { Link } from 'react-router-dom';
-import { AiOutlineHome } from "react-icons/ai";
-import { BsSuitHeart, BsClockHistory, BsCurrencyDollar } from "react-icons/bs";
-import { MdSupportAgent } from "react-icons/md";
-import { FaRegUser } from "react-icons/fa";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPhone, faEnvelope, faLocationDot, faUser, faBell, faMagnifyingGlass, faCircleUser, faCartShopping, faBasketShopping } from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass, faCircleUser, faCartShopping, faBasketShopping } from '@fortawesome/free-solid-svg-icons'
 import userImg from '../../image/user-image.png'
-import { RiDashboardFill } from "react-icons/ri";
 import { productContext } from '../../App';
 import HeaderTop from '../Header/HeaderTop';
 import Sidebar from './Sidebar';
 
 const UserDashboard = () => {
-    const { loggedInUser, setLoggedInUser } = useContext(productContext);
     const { orderData, setOrderData } = useContext(productContext);
     console.log('order data from dashboard', orderData)
     return (
         <div className='admin-dash-section'>
             <div>
                 <div className="admin-login-info user-padding">
-                    {/* <div className="admin-info-wrap">
-                        <FaUserCircle className='admin-user' />
-                        <p>John Watson</p>
-                    </div>
-                    <MdSettingsSuggest className='admin-setting' /> */}
                 </div>
             </div>
             <div className='user-dash-header'>
-            <HeaderTop></HeaderTop>
+                <HeaderTop></HeaderTop>
             </div>
 
             <div className="header">
@@ -85,9 +73,6 @@ const UserDashboard = () => {
                         </div>
                         <div className="default-shipping-address">
                             <p>Default Shipping Address</p>
-                            {/* {
-                                orderData.map((dt)=> <h6>{dt.address.street}, {dt.address.postal}, {dt.address.city}, {dt.address.country}</h6>)
-                            } */}
                         </div>
                     </div>
                 </div>

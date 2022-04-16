@@ -1,45 +1,15 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import './Admin.css'
-import { FaUserCircle, FaUserFriends } from "react-icons/fa";
-import { MdSettingsSuggest, MdReviews } from "react-icons/md";
+import { FaUserFriends } from "react-icons/fa";
+import { MdReviews } from "react-icons/md";
 import { AiFillHome, AiFillPlusCircle } from "react-icons/ai";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import AdminHeader from './AdminHeader';
 
 const AddService = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-
-    // const onSubmit = data => {
-    //     const productData = {
-    //         name: data.name,
-    //         description: data.description,
-    //         price: data.price,
-    //         brand: data.name,
-    //         quantity: data.description,
-    //         category: data.price
-    //     };
-    //     const url = `http://localhost:4000/api/product/create`;
-
-
-    //     fetch(url, {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(productData)
-    //     })
-    //         .then(res => res.json())
-    //         .then(success => {
-    //             if (success) {
-    //                 alert('Product Created Sucessfully!')
-    //             }
-
-    //         })
-    //     console.log(data)
-    // };
     const [name, setName] = useState("");
     const [quantity, setQuantity] = useState("");
     const [price, setPrice] = useState("");
@@ -57,25 +27,24 @@ const AddService = () => {
         form.append("brand", brand);
         form.append("description", description);
         form.append("category", category);
-        // form.append("productPictures", productPictures);
         for (let pic of productPictures) {
             form.append("productPictures", pic);
-          }
+        }
 
-          fetch("http://localhost:4000/api/product/create", {
+        fetch("https://still-tundra-52950.herokuapp.com/api/product/create", {
             method: 'POST',
-            body:form, 
-          })
-          .then((result)=> {
-              alert("form data submitted successfully")
-          })
-          .catch((err)=> {
-              console.log(err.error)
-          })
+            body: form,
+        })
+            .then((result) => {
+                alert("form data submitted successfully")
+            })
+            .catch((err) => {
+                console.log(err.error)
+            })
     }
     const handleProductPictures = (e) => {
         setProductPictures([...productPictures, e.target.files[0]]);
-      };
+    };
 
     return (
         <div className='admin-dash-section'>
@@ -113,7 +82,7 @@ const AddService = () => {
                     <div className="common-width-input">
                         <div className="single-input">
                             <label htmlFor="">Brand:</label>
-                            <input type="text" name="brand" placeholder="Brand" value={brand} onChange={(e) => setBrand(e.target.value)}/>
+                            <input type="text" name="brand" placeholder="Brand" value={brand} onChange={(e) => setBrand(e.target.value)} />
                         </div>
 
                         <div className="single-input">

@@ -28,23 +28,23 @@ function App() {
   const [productData, setProductData] = useState([]);
   const [singleProductData, setSingleProductData] = useState([]);
   const [list, setList] = useState([]);
-  const [updateProduct, setUpdateProduct]= useState([]);
+  const [updateProduct, setUpdateProduct] = useState([]);
   const [orderData, setOrderData] = useState([]);
-  const [searchProduct, setSearchProduct] =useState('');
+  const [searchProduct, setSearchProduct] = useState('');
   const [quantity, setQuantity] = useState(1);
   const [loggedInUser, setLoggedInUser] = useState({});
-  const [adminLoggedIn, setAdminLoggedIn]= useState({});
+  const [adminLoggedIn, setAdminLoggedIn] = useState({});
   const [shippingData, setShippingData] = useState(null);
   const [addToCart, setAddToCart] = useState(0);
 
-  const value = { 
-    productData, setProductData, 
+  const value = {
+    productData, setProductData,
     list, setList,
-    quantity, setQuantity, 
+    quantity, setQuantity,
     loggedInUser, setLoggedInUser,
     searchProduct, setSearchProduct,
     adminLoggedIn, setAdminLoggedIn,
-    singleProductData, setSingleProductData, 
+    singleProductData, setSingleProductData,
     shippingData, setShippingData,
     orderData, setOrderData,
     addToCart, setAddToCart,
@@ -66,18 +66,16 @@ function App() {
           <Route path="/admin/product/edit/:pdId" element={<UpdateProduct />} />
           <Route path="/admin/reviews" element={<ReviewRecords />} />
           <Route path="/cart/:productId" element={<ShoppingCart />} />
-          {/* <Route path="/cart/chehckout" element={ <PrivateRoute> <Checkout /> </PrivateRoute>}/> */}
           <Route
-                path='/cart/chehckout'
-                element={(() => {
-                  if (loggedInUser && loggedInUser._id) {
-                    return <Checkout />
-                  } else {
-                    return <Signin />
-                  }
-                })()}
-              />
-          {/* <Route path="/cart/payment" element={<Payment />} /> */}
+            path='/cart/chehckout'
+            element={(() => {
+              if (loggedInUser && loggedInUser._id) {
+                return <Checkout />
+              } else {
+                return <Signin />
+              }
+            })()}
+          />
           <Route path="/cart/place-order/:productId" element={<PlaceOrder />} />
           <Route path="/admin/signin" element={<AdminSignin />} />
           <Route path="/signin" element={<Signin />} />

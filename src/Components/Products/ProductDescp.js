@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { productContext } from '../../App';
 
@@ -7,8 +6,7 @@ const ProductDescp = () => {
     const navigate = useNavigate();
     const { quantity, setQuantity } = useContext(productContext);
     const { singleProductData, setSingleProductData } = useContext(productContext);
-    const {addToCart, setAddToCart} = useContext(productContext);
-    // const { loggedInUser, setLoggedInUser } = useContext(productContext);
+    const { addToCart, setAddToCart } = useContext(productContext);
 
     if (quantity <= 0) {
         setQuantity(1);
@@ -17,40 +15,6 @@ const ProductDescp = () => {
         navigate(`/cart/${productId}`)
     }
 
-    // const { register, handleSubmit, formState: { errors } } = useForm();
-    // const onSubmit = (data) => {
-    //     const userData = {
-    //         user: loggedInUser._id,
-    //         cartItems: {
-    //             product: data.product,
-    //             quantity: data.quantity,
-    //             price: data.price
-    //         }
-    //     };
-    //     console.log("user data from product desc", userData);
-    //     const url = `http://localhost:4000/api/user/cart/addtocart`;
-
-
-    //     fetch(url, {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(userData)
-    //     })
-    //     .then(res => res.json())
-    //     .then(success => {
-    //         if (success) {
-    //             alert('Item added to Cart!')
-    //         }
-
-    //     })
-    //     .catch((error)=> {
-    //         console.log(error);
-    //     })
-    //     // navigate('/signin')
-    //     // console.log(data)
-    // };
     return (
         <>
             {
@@ -86,13 +50,13 @@ const ProductDescp = () => {
                                         <input type="text" value={quantity} onChange={(e) => setQuantity(e.target.value)} />
                                         <span style={{ cursor: 'pointer' }} onClick={() => setQuantity(quantity + 1)}>+</span>
                                     </div>
-                                    <div><button type="submit" onClick={() => {addToCartHandler(pd._id); setAddToCart(addToCart+1)}}>Add To Cart</button></div>
+                                    <div><button type="submit" onClick={() => { addToCartHandler(pd._id); setAddToCart(addToCart + 1) }}>Add To Cart</button></div>
                                 </form>
                             </div>
                         </div>
                     </div>
                 )
-             }
+            }
         </>
 
     );

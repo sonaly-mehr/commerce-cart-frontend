@@ -19,7 +19,7 @@ const FashionSale = () => {
                     </div>
                 </div>
                 <div className="col-md-4">
-                <div className="single-sale">
+                    <div className="single-sale">
                         <img src={sale2} alt="" />
                         <div className="sale-content">
                             <p>Bag Collectons</p>
@@ -29,7 +29,7 @@ const FashionSale = () => {
                     </div>
                 </div>
                 <div className="col-md-4">
-                <div className="single-sale">
+                    <div className="single-sale">
                         <img src={sale3} alt="" />
                         <div className="sale-content">
                             <p>Flash Sale</p>

@@ -28,13 +28,13 @@ const UpdateProduct = () => {
 
     const updateProduct = async e => {
         e.preventDefault();
-        await axios.put(`http://localhost:4000/api/product/update/${pdId}`, product);
+        await axios.put(`https://still-tundra-52950.herokuapp.com/api/product/update/${pdId}`, product);
         alert("Product Updated Sucessfully!")
         navigate('/admin/product-list')
     };
 
     const loadProduct = () => {
-        fetch(`http://localhost:4000/api/product/${pdId}`, {
+        fetch(`https://still-tundra-52950.herokuapp.com/api/product/${pdId}`, {
             method: "GET",
         })
             .then((response) => response.json())
@@ -82,7 +82,7 @@ const UpdateProduct = () => {
                     </div>
                     <div className="input-form-width">
                         <label htmlFor="">Brand</label> <br />
-                        <input type="text" name="brand" value={brand} onChange={e => onInputChange(e)} className="input-width"/> <br />
+                        <input type="text" name="brand" value={brand} onChange={e => onInputChange(e)} className="input-width" /> <br />
                     </div>
                 </div>
                 <button type='submit' onClick={updateProduct}>Update Product</button>

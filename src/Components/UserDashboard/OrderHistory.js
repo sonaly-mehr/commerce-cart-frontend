@@ -1,14 +1,7 @@
 import React, { useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { AiOutlineHome } from "react-icons/ai";
-import { BsSuitHeart, BsClockHistory, BsCurrencyDollar } from "react-icons/bs";
-import { MdSupportAgent } from "react-icons/md";
-import { FaRegUser } from "react-icons/fa";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPhone, faEnvelope, faLocationDot, faUser, faBell, faMagnifyingGlass, faCircleUser, faCartShopping, faBasketShopping } from '@fortawesome/free-solid-svg-icons'
-import userImg from '../../image/user-image.png'
+import {faMagnifyingGlass, faCircleUser, faCartShopping, faBasketShopping } from '@fortawesome/free-solid-svg-icons'
 import { productContext } from '../../App';
-import { RiDashboardFill } from "react-icons/ri";
 import HeaderTop from '../Header/HeaderTop';
 import Sidebar from './Sidebar';
 const OrderHistory = () => {
@@ -18,7 +11,7 @@ const OrderHistory = () => {
     console.log("order data from order history", orderData)
 
     useEffect(() => {
-        fetch('http://localhost:4000/api/user/order/list?email=' + loggedInUser.email)
+        fetch('https://still-tundra-52950.herokuapp.com/api/user/order/list?email=' + loggedInUser.email)
             .then(res => res.json())
             .then(data => setOrderData(data))
             .catch((error)=> {
@@ -30,11 +23,6 @@ const OrderHistory = () => {
         <div className='admin-dash-section'>
             <div>
                 <div className="admin-login-info user-padding">
-                    {/* <div className="admin-info-wrap">
-                        <FaUserCircle className='admin-user' />
-                        <p>John Watson</p>
-                    </div>
-                    <MdSettingsSuggest className='admin-setting' /> */}
                 </div>
             </div>
 
@@ -87,7 +75,7 @@ const OrderHistory = () => {
                                         <th className='order-payment-header'>Payment Status</th>
                                     </tr>
                                     <div className="order-table-header-border"></div>
-                                    { loggedInUser.email ?
+                                    {/* { loggedInUser.email ?
                                         orderData.orders.map((pd) => <>{
                                             pd.product.map((info) => 
                                             <tr className='order-table-content'>
@@ -102,7 +90,7 @@ const OrderHistory = () => {
                                         </>
                                         )
                                         : <p>You dont have any orders yet</p>
-                                    }
+                                    } */}
 
                                 </table>
                             </div>

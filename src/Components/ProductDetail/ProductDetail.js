@@ -2,8 +2,6 @@ import React, { useContext } from 'react';
 import Header from '../Header/Header';
 import './ProductDetail.css'
 import { useParams } from 'react-router-dom';
-// import Reviews from '../Products/Reviews';
-import { useState } from 'react';
 import { useEffect } from 'react';
 import ProductDescp from '../Products/ProductDescp';
 import FashionSale from '../FashionSale/FashionSale'
@@ -11,12 +9,12 @@ import { productContext } from '../../App';
 
 const ProductDetail = () => {
 
-    const {singleProductData, setSingleProductData} = useContext(productContext);
+    const { singleProductData, setSingleProductData } = useContext(productContext);
 
     const { productId } = useParams();
 
-    useEffect(()=> {
-        fetch(`http://localhost:4000/api/product/${productId}`)
+    useEffect(() => {
+        fetch(`https://still-tundra-52950.herokuapp.com/api/product/${productId}`)
             .then(res => res.json())
             .then(data => setSingleProductData(data));
     }, [productId])
@@ -41,7 +39,7 @@ const ProductDetail = () => {
             </div>
             <div className="container">
                 <div className="product-details">
-                     <ProductDescp></ProductDescp>
+                    <ProductDescp></ProductDescp>
                 </div>
             </div>
             <FashionSale></FashionSale>

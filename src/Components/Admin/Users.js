@@ -14,20 +14,20 @@ import AdminHeader from './AdminHeader';
 import axios from 'axios';
 
 const Users = () => {
-    const [search,setSearch] =useState('');
+    const [search, setSearch] = useState('');
     const [userList, setUserList] = useState([]);
     const [pageNumber, setPageNumber] = useState(0);
 
     console.log("search result", userList);
 
     useEffect(() => {
-        fetch('http://localhost:4000/api/user/list')
+        fetch('https://still-tundra-52950.herokuapp.com/api/user/list')
             .then(res => res.json())
             .then(data => setUserList(data))
     }, [])
 
     const deleteUser = (id) => {
-        fetch(`http://localhost:4000/api/user/delete/${id}`, {
+        fetch(`https://still-tundra-52950.herokuapp.com/api/user/delete/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -39,15 +39,14 @@ const Users = () => {
             })
         setUserList(userList.filter(u => u._id !== id))
     }
-    const searchRecords = (e) =>
-    {
+    const searchRecords = (e) => {
         e.preventDefault();
         // alert(search)
-        axios.get(`http://localhost:4000/api/search/user/${search}`)
-        .then(response => {
-            setUserList(response.data);
-          });
-        
+        axios.get(`https://still-tundra-52950.herokuapp.com/api/search/user/${search}`)
+            .then(response => {
+                setUserList(response.data);
+            });
+
     }
 
     const productPerPage = 8;
@@ -61,9 +60,6 @@ const Users = () => {
                 <tr>
                     <td className='user-email'>{user.email}</td>
                 </tr>
-                {/* <tr>
-                                    <td>{item.description}</td>
-                                </tr> */}
                 <tr>
                     <td className='user-number'>{user.contactNumber}</td>
                 </tr>
@@ -86,7 +82,7 @@ const Users = () => {
                 <div className="admin-product-header">
                     <p>Users</p>
                     <form action="">
-                        <input type="text" onChange={(e)=>setSearch(e.target.value)} placeholder='Search user by name or email...' />
+                        <input type="text" onChange={(e) => setSearch(e.target.value)} placeholder='Search user by name or email...' />
                         <button onClick={searchRecords}>Search</button>
                     </form>
                     <span>User List</span>

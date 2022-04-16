@@ -9,12 +9,7 @@ import userImg from '../../image/user-image.png';
 
 const Sidebar = () => {
     const { loggedInUser, setLoggedInUser } = useContext(productContext);
-    // const [buttonState, setButtonState] = useState(false);
-    
-    // const handleClick = () => {
-    //     setButtonState(buttonState => !buttonState);
-    // }
-    // let toggleClass = buttonState ? 'active': '';
+
     return (
         <div className="admin-dash-sidebar user-dash-sidebar">
                 <div className="user-name-header">

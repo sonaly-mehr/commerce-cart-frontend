@@ -1,61 +1,34 @@
 import React, { useContext } from 'react';
 import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPhone, faEnvelope, faLocationDot, faUser, faBell, faMagnifyingGlass, faCircleUser, faCartShopping, faBasketShopping, faBars } from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass, faCircleUser, faCartShopping, faBasketShopping, faBars } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { RiDashboardFill } from "react-icons/ri";
 import { productContext } from '../../App';
 import HeaderTop from './HeaderTop';
 import axios from 'axios';
 
 const Header = () => {
-    const {searchProduct, setSearchProduct} = useContext(productContext);
-    const {addToCart, setAddToCart} = useContext(productContext);
+    const { searchProduct, setSearchProduct } = useContext(productContext);
+    const { addToCart, setAddToCart } = useContext(productContext);
     const [productList, setProductList] = useState([]);
-    const {list, setList} = useContext(productContext);
-    // const [searchProduct, setSearchProduct] = useState('');
-    // const [searchResults, setSearchResults] = useState([]);
-
+    const { list, setList } = useContext(productContext);
 
     useEffect(() => {
-        fetch('http://localhost:4000/api/product/list')
+        fetch('https://still-tundra-52950.herokuapp.com/api/product/list')
             .then(res => res.json())
             .then(data => setProductList(data));
     }, [])
 
-    // const searchHandler = (searchProduct) => {
-    //     console.log(searchProduct);
-    //     setSearchProduct(searchProduct);
-    //     if (searchProduct !== '') {
-    //         const newTerms = productList.filter((product) => {
-    //             return Object.values(product).join(" ").toLowerCase().includes(searchProduct.toLowerCase());
-
-    //         })
-    //         setSearchResults(newTerms);
-    //     }
-    //     else {
-    //         setSearchResults(productList);
-    //     }
-    // }
-
-
-    // const getSearchTerm = () => {
-    //     searchHandler(inputEl.current.value)
-    // }
-
-    const searchRecords = (e) =>
-    {
+    const searchRecords = (e) => {
         e.preventDefault();
         // alert(search)
-        axios.get(`http://localhost:4000/api/search/product/${searchProduct}`)
-        .then(response => {
-            setList(response.data);
-          });
-          console.log('home product', setList);
-        
+        axios.get(`https://still-tundra-52950.herokuapp.com/api/search/product/${searchProduct}`)
+            .then(response => {
+                setList(response.data);
+            });
+        console.log('home product', setList);
+
     }
 
     return (
@@ -72,7 +45,7 @@ const Header = () => {
                         <div className="col-md-7">
                             <div className="search-bar">
                                 <form action="">
-                                    <input type="text" placeholder='Search Product Here..' onChange={(e)=>setSearchProduct(e.target.value)} />
+                                    <input type="text" placeholder='Search Product Here..' onChange={(e) => setSearchProduct(e.target.value)} />
                                     <button onClick={searchRecords}><FontAwesomeIcon icon={faMagnifyingGlass} className="search-icon"></FontAwesomeIcon></button>
                                 </form>
                             </div>

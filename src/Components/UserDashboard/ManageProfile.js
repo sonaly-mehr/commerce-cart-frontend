@@ -1,11 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { AiOutlineHome, AiOutlinePlus } from "react-icons/ai";
-import { BsSuitHeart, BsClockHistory, BsCurrencyDollar } from "react-icons/bs";
-import { MdSupportAgent } from "react-icons/md";
-import { FaRegUser } from "react-icons/fa";
+import { AiOutlinePlus } from "react-icons/ai";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPhone, faEnvelope, faLocationDot, faUser, faBell, faMagnifyingGlass, faCircleUser, faCartShopping, faBasketShopping } from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass, faCircleUser, faCartShopping, faBasketShopping } from '@fortawesome/free-solid-svg-icons'
 import { productContext } from '../../App';
 import HeaderTop from '../Header/HeaderTop';
 import Sidebar from './Sidebar';
@@ -39,13 +35,13 @@ const ManageProfile = () => {
 
     const updateUser = async e => {
         e.preventDefault();
-        await axios.put(`http://localhost:4000/api/user/update/${loggedInUser._id}`, user);
+        await axios.put(`https://still-tundra-52950.herokuapp.com/api/user/update/${loggedInUser._id}`, user);
         alert("User Updated Sucessfully!")
         navigate(`/user/profile/update/${loggedInUser._id}`)
     };
 
     const loadUser = () => {
-        fetch(`http://localhost:4000/api/user/${loggedInUser._id}`, {
+        fetch(`https://still-tundra-52950.herokuapp.com/api/user/${loggedInUser._id}`, {
             method: "GET",
         })
             .then((response) => response.json())
@@ -70,18 +66,13 @@ const ManageProfile = () => {
         <div className='admin-dash-section user-dash-sec'>
             <div>
                 <div className="admin-login-info user-padding">
-                    {/* <div className="admin-info-wrap">
-                        <FaUserCircle className='admin-user' />
-                        <p>John Watson</p>
-                    </div>
-                    <MdSettingsSuggest className='admin-setting' /> */}
                 </div>
             </div>
-    
+
             <div className='user-dash-header'>
-            <HeaderTop></HeaderTop>
+                <HeaderTop></HeaderTop>
             </div>
-            
+
             <div className="header">
                 <div className="container">
                     <div className="row">
@@ -120,15 +111,15 @@ const ManageProfile = () => {
                             </div>
                             <form action="" className='user-profile-wrap'>
                                 <label htmlFor="">First Name</label>
-                                <input type="text" name="firstName" value={firstName} onChange={e => onInputChange(e)}/><br />
+                                <input type="text" name="firstName" value={firstName} onChange={e => onInputChange(e)} /><br />
                                 <label htmlFor="">Last Name</label>
-                                <input type="text" name="lastName" value={lastName} onChange={e => onInputChange(e)}/><br />
+                                <input type="text" name="lastName" value={lastName} onChange={e => onInputChange(e)} /><br />
                                 <label htmlFor="">Your Email</label>
-                                <input type="email" name="email" value={email} onChange={e => onInputChange(e)}/><br />
+                                <input type="email" name="email" value={email} onChange={e => onInputChange(e)} /><br />
                                 <label htmlFor="">Password</label>
-                                <input type="password" name="password" value={password} onChange={e => onInputChange(e)} placeholder="Enter new password"/><br />
+                                <input type="password" name="password" value={password} onChange={e => onInputChange(e)} placeholder="Enter new password" /><br />
                                 <label htmlFor="">Contact Number</label>
-                                <input type="text" name="contactNumber" value={contactNumber} onChange={e => onInputChange(e)}/><br />
+                                <input type="text" name="contactNumber" value={contactNumber} onChange={e => onInputChange(e)} /><br />
                                 {/* <label htmlFor="">Photo</label>
                                 <input type="text"value={firstName} onChange={e => onInputChange(e)}/><br /> */}
                                 <button type='submit' onClick={updateUser}>Update Profile</button>
@@ -138,7 +129,7 @@ const ManageProfile = () => {
                             <p>Address</p>
                             <div className="profile-header-border"></div>
                             <div className="add-address">
-                                <AiOutlinePlus className='plus-icon'/>
+                                <AiOutlinePlus className='plus-icon' />
                                 <p>Add new address</p>
                             </div>
                         </div>

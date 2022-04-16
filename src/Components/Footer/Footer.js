@@ -7,6 +7,7 @@ import insta1 from '../../insta1.webp';
 import insta2 from '../../insta2.jpg';
 import insta3 from '../../insta3.jpg';
 import insta4 from '../../insta4.jpg';
+
 const Footer = () => {
     return (
         <div className='footer-section'>
@@ -75,17 +76,17 @@ const Footer = () => {
                                                     </div>
                                                 </div>
                                                 <div className="col-md-3">
-                                                <div className="single-gallary">
+                                                    <div className="single-gallary">
                                                         <img src={insta2} alt="" />
                                                     </div>
                                                 </div>
                                                 <div className="col-md-3">
-                                                <div className="single-gallary">
+                                                    <div className="single-gallary">
                                                         <img src={insta3} alt="" />
                                                     </div>
                                                 </div>
                                                 <div className="col-md-3">
-                                                <div className="single-gallary">
+                                                    <div className="single-gallary">
                                                         <img src={insta4} alt="" />
                                                     </div>
                                                 </div>
@@ -95,17 +96,17 @@ const Footer = () => {
                                                     </div>
                                                 </div>
                                                 <div className="col-md-3">
-                                                <div className="single-gallary">
+                                                    <div className="single-gallary">
                                                         <img src={insta2} alt="" />
                                                     </div>
                                                 </div>
                                                 <div className="col-md-3">
-                                                <div className="single-gallary">
+                                                    <div className="single-gallary">
                                                         <img src={insta3} alt="" />
                                                     </div>
                                                 </div>
                                                 <div className="col-md-3">
-                                                <div className="single-gallary">
+                                                    <div className="single-gallary">
                                                         <img src={insta4} alt="" />
                                                     </div>
                                                 </div>

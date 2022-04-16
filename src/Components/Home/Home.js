@@ -4,7 +4,8 @@ import FashionSale from '../FashionSale/FashionSale';
 import Header from '../Header/Header';
 import NavBar from '../Header/NavBar';
 import Products from '../Products/Products';
-const Home = ({loggedInUser}) => {
+
+const Home = ({ loggedInUser }) => {
     return (
         <div>
             <Header loggedInUser={loggedInUser}></Header>

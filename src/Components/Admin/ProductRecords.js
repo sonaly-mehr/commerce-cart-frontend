@@ -12,23 +12,21 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import ReactPaginate from 'react-paginate'
 import AdminHeader from './AdminHeader';
-import { productContext } from '../../App';
 import axios from 'axios';
 
 const ProductRecords = () => {
-    const [search, setSearch] =useState('');
+    const [search, setSearch] = useState('');
     const [ProductList, setProducList] = useState([]);
     const [pageNumber, setPageNumber] = useState(0);
-    const [singleProduct, setSingleProduct] = useState([])
-    const { updateProduct, setUpdateProduct } = useContext(productContext);
+
     useEffect(() => {
-        fetch('http://localhost:4000/api/admin/product/list')
+        fetch('https://still-tundra-52950.herokuapp.com/api/admin/product/list')
             .then(res => res.json())
             .then(data => setProducList(data))
     }, [])
 
     const deleteProduct = (id) => {
-        fetch(`http://localhost:4000/api/product/delete/${id}`, {
+        fetch(`https://still-tundra-52950.herokuapp.com/api/product/delete/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -41,15 +39,14 @@ const ProductRecords = () => {
         setProducList(ProductList.filter(p => p._id !== id))
     }
 
-    const searchRecords = (e) =>
-    {
+    const searchRecords = (e) => {
         e.preventDefault();
         // alert(search)
-        axios.get(`http://localhost:4000/api/admin/search/product/${search}`)
-        .then(response => {
-            setProducList(response.data);
-          });
-        
+        axios.get(`https://still-tundra-52950.herokuapp.com/api/admin/search/product/${search}`)
+            .then(response => {
+                setProducList(response.data);
+            });
+
     }
 
     const productPerPage = 8;
@@ -63,9 +60,6 @@ const ProductRecords = () => {
                 <tr>
                     <td className='product-price'>{product.price}</td>
                 </tr>
-                {/* <tr>
-                                    <td>{item.description}</td>
-                                </tr> */}
                 <tr>
                     <td className='product-category'>{product.category}</td>
                 </tr>
@@ -93,10 +87,10 @@ const ProductRecords = () => {
 
 
             <div className="add-product-form default-dash-width" style={{ textAlign: 'center' }}>
-            <div className="admin-product-header">
+                <div className="admin-product-header">
                     <p>Product</p>
                     <form action="">
-                        <input type="text" onChange={(e)=>setSearch(e.target.value)} placeholder='Search user by name or email...' />
+                        <input type="text" onChange={(e) => setSearch(e.target.value)} placeholder='Search user by name or email...' />
                         <button onClick={searchRecords}>Search</button>
                     </form>
                     <span>Product List</span>

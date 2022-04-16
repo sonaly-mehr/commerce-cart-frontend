@@ -1,5 +1,4 @@
 import React from 'react';
-// import Reviews from './Reviews';
 import { useNavigate } from 'react-router-dom';
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 
@@ -12,7 +11,7 @@ const ProductList = ({ pd }) => {
 
         <div className='col-md-3 prouct-hover'>
             <div className="single-product">
-            <img src={pd.productPictures[0].img} alt="" />
+                <img src={pd.productPictures[0].img} alt="" />
                 <div className="product-desp">
                     <h4 onClick={() => handleProduct(pd._id)} style={{ cursor: 'pointer' }}>{pd.name}</h4>
                     <span className='price'>${pd.price}</span>

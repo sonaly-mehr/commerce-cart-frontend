@@ -6,7 +6,7 @@ export const listProduct = () => async (dispatch) => {
         type: PRODUCT_LIST_REQUEST,
     });
     try {
-        const {data} = await axios.get('http://localhost:4000/api/product/list');
+        const {data} = await axios.get('https://still-tundra-52950.herokuapp.com/api/product/list');
         dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data});
         
     } catch (error) {

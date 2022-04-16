@@ -62,7 +62,7 @@ const Checkout = () => {
             email: loggedInUser.email,
             paymentId
         };
-        fetch('http://localhost:4000/api/user/orders', {
+        fetch('https://still-tundra-52950.herokuapp.com/api/user/orders', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newOrder)

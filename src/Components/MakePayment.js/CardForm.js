@@ -4,13 +4,13 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { productContext } from '../../App';
 import './Payment.css'
 
-const CardForm = ({handleCheckOut}) => {
-    const {singleProductData, setSingleProductData} = useContext(productContext);
+const CardForm = ({ handleCheckOut }) => {
+    const { singleProductData, setSingleProductData } = useContext(productContext);
 
     const { productId } = useParams();
 
-    useEffect(()=> {
-        fetch(`http://localhost:4000/api/product/${productId}`)
+    useEffect(() => {
+        fetch(`https://still-tundra-52950.herokuapp.com/api/product/${productId}`)
             .then(res => res.json())
             .then(data => setSingleProductData(data));
     }, [productId])
@@ -46,7 +46,7 @@ const CardForm = ({handleCheckOut}) => {
         }
     };
     const paymentHandle = (productId) => {
-        if(paymentSuccess){
+        if (paymentSuccess) {
             alert("your payment was sucessfull")
             navigate(`/cart/place-order/${productId}`)
         }
@@ -71,21 +71,17 @@ const CardForm = ({handleCheckOut}) => {
                 </select>
                 <input type="text" placeholder='Zip Code' className='zip_code' />
                 {
-                    singleProductData.map((data)=> 
-                    <button type="submit" disabled={!stripe} className="payment-submit" onClick={()=> paymentHandle(data._id)}>
-                    Pay
-                </button>
+                    singleProductData.map((data) =>
+                        <button type="submit" disabled={!stripe} className="payment-submit" onClick={() => paymentHandle(data._id)}>
+                            Pay
+                        </button>
                     )
                 }
-                
+
             </form>
             {
                 paymentError && <p style={{ color: 'red' }}>{paymentError}</p>
             }
-            {/* {
-                paymentSuccess && paymentHandle()
-                // <p style={{ color: 'green' }}>Your Payment was successful</p>
-            } */}
         </div>
     );
 };
