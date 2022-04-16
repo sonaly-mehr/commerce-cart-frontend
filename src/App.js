@@ -23,6 +23,7 @@ import Payment from './Components/MakePayment.js/Payment';
 import PlaceOrder from './Components/PlaceOrder/PlaceOrder';
 import AdminSignin from './Components/Auth/AdminSignin';
 import UpdateProduct from './Components/Admin/UpdateProduct';
+import AdminSingup from './Components/Auth/AdminSingup';
 export const productContext = createContext();
 function App() {
   const [productData, setProductData] = useState([]);
@@ -78,6 +79,7 @@ function App() {
           />
           <Route path="/cart/place-order/:productId" element={<PlaceOrder />} />
           <Route path="/admin/signin" element={<AdminSignin />} />
+          <Route path="/admin/signup" element={<AdminSingup />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/user/dashboard" element={<UserDashboard />} />

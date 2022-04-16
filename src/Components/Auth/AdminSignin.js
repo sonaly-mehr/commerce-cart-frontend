@@ -58,7 +58,7 @@ const AdminSignin = () => {
                     <div className="col-md-6 padding">
                         <div className="signin-form">
                             <div className="signin">
-                                <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
+                                <p>Don't have an account? <Link to="/admin/signup">Sign Up</Link></p>
                             </div>
                             <div className="auth-form-wrap">
                                 <h2>Welcome to Commerce Cart!</h2>
