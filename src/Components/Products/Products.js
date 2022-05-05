@@ -55,18 +55,16 @@ const Products = () => {
                 </div>
                 <div className="product-wrap">
                     <div className="row">
-                        {
+                        { list.length>0 || productss.length>0 ?
                             list.slice(0, 8).map((item) =>
                                 <div className='col-md-3 prouct-hover'>
                                     <div className="single-product">
                                         <img src={item.productPictures[0].img} alt="" />
-                                        {/* {console.log(pd.productPictures[0].img)} */}
                                         <div className="product-desp">
                                             <h4 onClick={() => handleProduct(item._id)} style={{ cursor: 'pointer' }}>{item.name}</h4>
                                             <span className='price'>${item.price}</span>
                                             <button>Add To Cart</button>
                                             <br />
-                                            {/* <Reviews item={item}></Reviews> */}
                                             <div className='review-section'>
                                                 {
                                                     item.rating >= 1 ? <BsStarFill className="review-star" />
@@ -98,10 +96,12 @@ const Products = () => {
 
                                         </div>
                                     </div>
-                                </div>
-                            )
+                                </div> 
+                                
+                            ) : <p className="loading">...Loading</p>
 
                         }
+                        
                         {
                             productss.map((pd) => <ProductList pd={pd}></ProductList>)
                         }

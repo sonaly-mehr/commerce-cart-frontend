@@ -88,3 +88,10 @@
     color:rgb(37, 59, 184)
     
 }
+.loading{
+    text-align: center;
+    font-size: 33px;
+    margin-bottom: 55px;
+    margin-top: 40px;
+    font-weight: 500;
+}
