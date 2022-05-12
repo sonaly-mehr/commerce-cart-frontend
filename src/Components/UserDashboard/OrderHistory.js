@@ -75,8 +75,8 @@ const OrderHistory = () => {
                                         <th className='order-payment-header'>Payment Status</th>
                                     </tr>
                                     <div className="order-table-header-border"></div>
-                                    {/* { loggedInUser.email ?
-                                        orderData.orders.map((pd) => <>{
+                                    { loggedInUser.email ?
+                                        orderData.orders && orderData.orders.map((pd) => <>{
                                             pd.product.map((info) => 
                                             <tr className='order-table-content'>
                                                 <td className='order-title'>{info.productName}</td>
@@ -90,7 +90,7 @@ const OrderHistory = () => {
                                         </>
                                         )
                                         : <p>You dont have any orders yet</p>
-                                    } */}
+                                    }
 
                                 </table>
                             </div>
